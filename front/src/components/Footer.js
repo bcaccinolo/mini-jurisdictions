@@ -8,7 +8,7 @@ class BaseComponent extends Component {
   render = () => {
     const content = (
       <Container textAlign='center' id='footer'>
-      Created by Benoit Caccinolo with <a href="https://elixir-lang.org/">Elixir</a> and <a href="https://reactjs.org/">ReactJS</a>
+      Created by <a href="https://github.com/bcaccinolo">Benoit Caccinolo</a> with <a href="https://elixir-lang.org/">Elixir</a> and <a href="https://reactjs.org/">ReactJS</a>
       </Container>
     )
     return content
