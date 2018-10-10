@@ -34,3 +34,8 @@ To keep the setup simple, the Postgres DB is in a Docker image.
 
 The good thing is that this dependency doesn't need to be installed.
 
+## How to setup the project?
+
+To setup the backend, please follow instructions in [back/README](https://github.com/bcaccinolo/mini-jurisdictions/blob/master/back/README.md)
+
+To setup the frontend, please follow instructions in [front/README](https://github.com/bcaccinolo/mini-jurisdictions/blob/master/front/README.md)
