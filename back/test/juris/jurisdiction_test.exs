@@ -22,11 +22,11 @@ defmodule Juris.JurisdictionTest do
   end
 
   test "Fuzzy search: query = fra" do
-    assert ["France"] == Jurisdiction.fuzzy("fra")
+    assert {:ok, [["France", "FR"]]} == Jurisdiction.fuzzy({}, "fra")
   end
 
   test "Fuzzy search: query = gre" do
-    assert ["Greece", "Grenada"] == Jurisdiction.fuzzy("gre")
+    assert {:ok, [["Greece", "GR"], ["Grenada", "GD"]]} == Jurisdiction.fuzzy({}, "gre")
   end
 
 end

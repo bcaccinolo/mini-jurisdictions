@@ -19,7 +19,7 @@ class BaseComponent extends Component {
     }
 
     let no_search_result_message = ""
-    if(this.props.jurisdictions.length == 0) {
+    if(this.props.jurisdictions.length === 0) {
       no_search_result_message = ( <Message icon='search' header='No match found' /> )
     }
 

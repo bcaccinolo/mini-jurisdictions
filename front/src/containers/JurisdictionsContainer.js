@@ -22,7 +22,7 @@ class BaseComponent extends Component {
   // when the search field is updated
   onChange = (ev, data) => {
     const query = data.value.trim()
-    if(query.length == 0) {
+    if(query.length === 0) {
       this.jurisdiction_page(1);
     } else {
       this.search(data.value.trim())

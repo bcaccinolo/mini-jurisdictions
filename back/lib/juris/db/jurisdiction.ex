@@ -22,13 +22,26 @@ defmodule Jurisdiction do
     |> Juris.Repo.all
   end
 
+  # Do a fuzzy search with a low similarity threshold.
+  # It allows to return more results.
+  def search(query) do
+    Ecto.Multi.new
+    |> Ecto.Multi.run(:activate, Juris.Repo, :set_limit, [])
+    |> Ecto.Multi.run(:query, __MODULE__, :fuzzy, [query])
+    |> Juris.Repo.transaction
+    |> case do
+      {:ok, %{query: result}} -> result
+      error -> error
+    end
+  end
+
   # Fuzzy search
-  def fuzzy(query) do
+  def fuzzy(_, query) do
     "select name, code from jurisdictions where name % '#{query}';"
     |> Juris.Repo.query
     |> case do
-      {:ok, %Postgrex.Result{rows: rows}} -> rows
-      {:error, _} -> :error
+      {:ok, %Postgrex.Result{rows: rows}} -> {:ok, rows}
+      error -> error
     end
   end
 
