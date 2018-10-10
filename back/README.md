@@ -1,33 +1,21 @@
-# Juris
+# Mini-Jurisdiction Backend
 
-## Launch the server
+## Setup the database
+
+To launch the Postgres database, you need to have a Docker machine installed.
+
+You will also need to install dnsdock (https://github.com/aacebedo/dnsdock) to allow accessing a docker image through an alias.
 ```
-iex -S mix
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock --name dnsdock --restart=always -p 172.18.0.1:53:53/udp aacebedo/dnsdock:latest-amd64
 ```
 
-http://localhost:3100/fuzzy/bul
-
-## Changelog
-Everything is in Trello:
-https://trello.com/b/eZ9EzyaA/juridictions-api
-
-# Specifications
-https://docs.google.com/document/d/1tC5tqynh8lV8jj7-kF31ZzRYHwd0van_3cKdnuTGlfw/edit#
-
-## Todo / Tasks
-Everything is in Trello:
-https://trello.com/b/eZ9EzyaA/juridictions-api
-
-## Setup
-
-### Setup the database
-The project uses Postgres, we uses a Docker image.
+Then when this is installed, you just need to launch:
 ```
 cd ops/
 docker-compose up
 ```
 
-### Migrations
+### Run migrations
 ```mix ecto.migrate```
 
 ### Loads Seeds
@@ -36,8 +24,21 @@ docker-compose up
 ### Activate fuzzy search
 ```mix db.set_extension```
 
-## Query Jurisdictions
-Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#from/2
+## Launch the server
+```
+iex -S mix
+```
+The server is launched on the port 3100.
+
+## Access endpoints
+
+### Paginated list of jurisdictions
+
+http://localhost:3100/jurisdictions/1
+
+### Search
+
+http://localhost:3100/fuzzy/bul
 
 ## Testing
 
@@ -61,6 +62,7 @@ iex -S mix
     (elixir) expanding macro: Kernel.use/2
     lib/repo.ex:2: Repo (module)
 ```
+
 To solve this:
 ```
 mix deps.clean --all
