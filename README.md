@@ -1,5 +1,7 @@
 # mini-jurisdictions
 
+![alt text](https://github.com/bcaccinolo/mini-jurisdictions/blob/master/img/screenshot.png)
+
 ## What is Mini-Jurisdiction?
 
 It is a demo project to develop my tech competencies.
@@ -10,7 +12,7 @@ The frontend is done with React and SemanticUI.
 
 Functionaly speaking, this project lists all the existing jurisdictions in the world.
 
-There is also a search field to look for a specific one.
+There is also a search field to look for a specific jurisdiction.
 
 ## Fuzzy search
 
